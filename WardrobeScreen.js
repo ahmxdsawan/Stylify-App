@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 export default function WardrobeScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.screen} >Wardrobe</Text>
-      <Text style={styles.text}>All ↓</Text>
-    </View>
+      <Text style={styles.text}>All∨</Text>
+    </SafeAreaView>
   );
 }
 
@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 21,
         top: 109,
-        width: 250,
-        height: 55,
+        width: 270,
+        height: 100,
         fontSize: 48,
         textAlign: 'left',
         color: 'black',
