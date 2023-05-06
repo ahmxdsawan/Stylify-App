@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
         width: 250,
         height: 55,
         fontSize: 48,
-        lineHeight: 58,
         textAlign: 'left',
         color: 'black',
         fontWeight: 'bold',
@@ -36,7 +35,6 @@ const styles = StyleSheet.create({
         width: 312,
         height: 37,
         fontSize: 24,
-        lineHeight: '29px',
         textAlign: 'left',
         color: 'black',
 
