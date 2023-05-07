@@ -1,56 +1,113 @@
-import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Modal } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function WardrobeScreen() {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('All');
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+    setModalVisible(false);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.screen} >Wardrobe</Text>
-      <Text style={styles.text}>All</Text>
-      <View style={styles.dropdown}>
+      <TouchableOpacity style={styles.dropdown} onPress={() => setModalVisible(true)}>
+        <Text style={styles.text}>{selectedOption}</Text>
         <MaterialCommunityIcons name="chevron-down" size={24} color="black" />
-      </View>
+      </TouchableOpacity>
+      <Modal visible={modalVisible} animationType="slide" transparent>
+        <View style={styles.modal}>
+          <TouchableOpacity style={styles.modalOption} onPress={() => handleOptionSelect('All')}>
+            <Text style={styles.modalText}>All</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.modalOption} onPress={() => handleOptionSelect('Tops')}>
+            <Text style={styles.modalText}>Tops</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.modalOption} onPress={() => handleOptionSelect('Bottoms')}>
+            <Text style={styles.modalText}>Bottoms</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.modalOption} onPress={() => handleOptionSelect('Shoes')}>
+            <Text style={styles.modalText}>Shoes</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.modalOption} onPress={() => setModalVisible(false)}>
+            <Text style={[styles.modalText, { color: 'red' }]}>Cancel</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'white',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    screen: {
-        position: 'absolute',
-        left: 21,
-        top: 109,
-        width: 270,
-        height: 100,
-        fontSize: 48,
-        textAlign: 'left',
-        color: 'black',
-        fontWeight: 'bold',
-    },
-    text: {
-        position: 'absolute',
-        left: 35,
-        top: 193,
-        width: 312,
-        height: 37,
-        fontSize: 24,
-        textAlign: 'left',
-        color: 'black',
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  screen: {
+    position: 'absolute',
+    left: 21,
+    top: 109,
+    width: 270,
+    height: 100,
+    fontSize: 48,
+    textAlign: 'left',
+    color: 'black',
+    fontWeight: 'bold',
+  },
+  text: {
+    fontSize: 24,
+    textAlign: 'left',
+    color: 'black',
+  },
+  dropdown: {
+    position: 'absolute',
+    flexDirection: 'row',
+    alignItems: 'center',
+    left: 35,
+    top: 193,
+    width: 312,
+    height: 37,
+    backgroundColor: '#F5F5F5',
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 5,
+  },
+  modalBackdrop: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modal: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 1,
+    width: 200,
+    height: 180,
+    alignItems: 'center',
+    marginTop: 190
+  },
+  modalList: {
+    maxHeight: 200,
+  },
+  option: {
+    paddingVertical: 10,
+  },
+  modalText: {
+    fontSize: 24,
+    textAlign: 'center',
+    color: 'black',
+  },
+});
 
-    },
-    dropdown: {
-        position: 'absolute',
-        left: 60,
-        top: 194,
-        width: 312,
-        height: 37,
-        fontSize: 24,
-        textAlign: 'left',
-        color: 'black',
-    }
-  });
+
+
+
+
+
+
