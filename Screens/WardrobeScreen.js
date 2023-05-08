@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#F5F5F5',
+    
     paddingBottom: 15,
     alignItems: 'center',
     marginTop: 30,
@@ -136,9 +136,11 @@ const styles = StyleSheet.create({
   buttonText: {
     alignItems: 'center',
     justifyContent: 'flex-end', // Align to bottom of container
+    backgroundColor: '#F5F5F5',
     paddingVertical: 17,
     paddingHorizontal: 38,
-    borderRadius: 4,
+    borderRadius: 50,
+    width: 5,
     elevation: 34,
   },  
   buttonIcon: {
