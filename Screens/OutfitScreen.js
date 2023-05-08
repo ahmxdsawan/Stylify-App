@@ -59,11 +59,11 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
       position: 'absolute',
-      bottom: 0,
+      bottom: 5,
       width: '100%',
       flexDirection: 'row',
       justifyContent: 'space-around',
-      backgroundColor: '#F5F5F5',
+      
       paddingBottom: 15,
       alignItems: 'center',
       marginTop: 30,
@@ -72,9 +72,12 @@ const styles = StyleSheet.create({
     buttonText: {
       alignItems: 'center',
       justifyContent: 'flex-end', // Align to bottom of container
+      backgroundColor: '#F5F5F5',
+      bottom: 23,
       paddingVertical: 17,
-      paddingHorizontal: 38,
-      borderRadius: 4,
+      paddingHorizontal: 37,
+      borderRadius: 50,
+  
       elevation: 34,
-    },  
+    },
   });

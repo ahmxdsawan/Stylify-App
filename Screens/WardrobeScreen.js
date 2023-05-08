@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
 
   buttonContainer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: 5,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -137,10 +137,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end', // Align to bottom of container
     backgroundColor: '#F5F5F5',
+    bottom: 23,
     paddingVertical: 17,
-    paddingHorizontal: 38,
+    paddingHorizontal: 37,
     borderRadius: 50,
-    width: 5,
+
     elevation: 34,
   },  
   buttonIcon: {
