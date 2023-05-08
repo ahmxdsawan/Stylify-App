@@ -8,7 +8,7 @@ export default function WardrobeScreen() {
   const [selectedOption, setSelectedOption] = useState('All');
 
   const navigation = useNavigation();
-  
+
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     setModalVisible(false);
@@ -50,16 +50,19 @@ export default function WardrobeScreen() {
           </TouchableOpacity>
         </View>
       </Modal>
-      <TouchableOpacity style={styles.buttonText} onPress={navOutfit}>
-          <MaterialCommunityIcons name="tshirt-crew" size={24} color="black" style={styles.buttonIcon} />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonText} onPress={navAccount}>
-        <MaterialCommunityIcons name="account" size={24} color="black" style={styles.buttonIcon} />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonText} onPress={navUpload}>
-        <MaterialCommunityIcons name="upload" size={24} color="black" style={styles.buttonIcon} />
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.buttonText} onPress={navOutfit}>
+          <MaterialCommunityIcons name="tshirt-crew" size={24} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonText} onPress={navAccount}>
+          <MaterialCommunityIcons name="account" size={24} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonText} onPress={navUpload}>
+          <MaterialCommunityIcons name="upload" size={24} color="black" />
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
+
   );
 }
 
@@ -91,13 +94,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     left: 35,
-    top: 193,
+    top: 191,
     width: 312,
-    height: 37,
+    height: 34,
     backgroundColor: '#F5F5F5',
     borderRadius: 10,
     paddingHorizontal: 15,
     paddingVertical: 5,
+  
   },
   modalBackdrop: {
     flex: 1,
@@ -108,25 +112,35 @@ const styles = StyleSheet.create({
   modal: {
     backgroundColor: '#F5F5F5',
     borderRadius: 10,
-    padding: 1,
+    padding: 4,
     width: 150,
-    height: 160,
+    height: 170,
     left: 35,
     alignItems: 'center',
-    marginTop: 240
+    marginTop: 240,
+    marginBottom: 10,
+},
+
+  buttonContainer: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#F5F5F5',
+    paddingBottom: 15,
+    alignItems: 'center',
+    marginTop: 30,
+    marginRight: 10,
   },
   buttonText: {
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
-    borderWidth: 2,
-    borderColor: '#9B9B9B',
-    borderRadius: 50,
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    marginHorizontal: 5,
-  },
+    justifyContent: 'flex-end', // Align to bottom of container
+    paddingVertical: 17,
+    paddingHorizontal: 38,
+    borderRadius: 4,
+    elevation: 34,
+  },  
   buttonIcon: {
     marginRight: 5,
   },
@@ -135,6 +149,10 @@ const styles = StyleSheet.create({
   },
   option: {
     paddingVertical: 10,
+  },
+  modalOption: {
+    paddingVertical: 4,
+    marginBottom: 0,
   },
   modalText: {
     fontSize: 24,

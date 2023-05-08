@@ -21,15 +21,17 @@ export default function UploadScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.screen}>Upload</Text>
-      <TouchableOpacity style={styles.buttonText} onPress={navWardrobe}>
-        <MaterialCommunityIcons name="wardrobe" size={24} color="black" />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonText} onPress={navOutfit}>
-        <MaterialCommunityIcons name="tshirt-crew" size={24} color="black" />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonText} onPress={navAccount}>
-        <MaterialCommunityIcons name="account" size={24} color="black" />
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.buttonText} onPress={navOutfit}>
+          <MaterialCommunityIcons name="tshirt-crew" size={24} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonText} onPress={navAccount}>
+          <MaterialCommunityIcons name="account" size={24} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonText} onPress={navWardrobe}>
+          <MaterialCommunityIcons name="wardrobe" size={24} color="black" />
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -53,4 +55,24 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: 'bold',
   },
+  buttonContainer: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#F5F5F5',
+    paddingBottom: 15,
+    alignItems: 'center',
+    marginTop: 30,
+    marginRight: 10,
+  },
+  buttonText: {
+    alignItems: 'center',
+    justifyContent: 'flex-end', // Align to bottom of container
+    paddingVertical: 17,
+    paddingHorizontal: 38,
+    borderRadius: 4,
+    elevation: 34,
+  },  
 });
