@@ -84,13 +84,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modal: {
-    backgroundColor: 'white',
+    backgroundColor: '#F5F5F5',
     borderRadius: 10,
     padding: 1,
-    width: 200,
-    height: 180,
+    width: 150,
+    height: 160,
+    left: 35,
     alignItems: 'center',
-    marginTop: 190
+    marginTop: 240
   },
   modalList: {
     maxHeight: 200,
