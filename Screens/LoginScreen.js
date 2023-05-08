@@ -44,6 +44,7 @@ const LoginScreen = () => {
       style={styles.container}
       behavior="padding"
     >
+      <Text style={{ fontSize: 24, marginBottom: 98 }}>Welcome to Stylit</Text>
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Email"
