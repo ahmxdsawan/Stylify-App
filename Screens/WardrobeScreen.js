@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Modal } from 'react-native';
+import { useNavigation } from '@react-navigation/core'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Modal, Button } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function WardrobeScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState('All');
 
+  const navigation = useNavigation()
+  
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     setModalVisible(false);
@@ -35,6 +38,12 @@ export default function WardrobeScreen() {
           <TouchableOpacity style={styles.modalOption} onPress={() => setModalVisible(false)}>
             <Text style={[styles.modalText, { color: 'red' }]}>Cancel</Text>
           </TouchableOpacity>
+          {/* <Button
+            onPress={navigation.replace("Outfit")}
+            title="Outfit"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+          /> */}
         </View>
       </Modal>
     </SafeAreaView>

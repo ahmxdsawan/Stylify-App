@@ -17,11 +17,11 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
-        <Stack.Screen name="Signup" component={SignupScreen} />
-        <Stack.Screen name="Wardrobe" component={WardrobeScreen} />
-        <Stack.Screen name="Outfit" component={OutfitScreen} />
-        <Stack.Screen name="Account" component={AccountScreen} />
-        <Stack.Screen name="Upload" component={UploadScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Signup" component={SignupScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Wardrobe" component={WardrobeScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Outfit" component={OutfitScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Account" component={AccountScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Upload" component={UploadScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
