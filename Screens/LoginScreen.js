@@ -19,6 +19,10 @@ const LoginScreen = () => {
     return unsubscribe
   }, [])
 
+  const navForgot = () => {
+    navigation.replace("Forgot")
+  }
+
   const handleSignUp = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
@@ -73,6 +77,13 @@ const LoginScreen = () => {
         >
           <Text style={styles.buttonOutlineText}>Register</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={navForgot}
+          style={ styles.forgotButtonOutline}
+        >
+          <Text style={styles.forgotButton}>Forgot Password?</Text>
+        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   )
@@ -124,5 +135,14 @@ const styles = StyleSheet.create({
     color: '#0782F9',
     fontWeight: '700',
     fontSize: 16,
+  },
+  forgotButton: {
+    color: '#0782F9',
+    fontWeight: '500',
+    fontSize: 16,
+  },
+  forgotButtonOutline: {
+    marginTop: 5,
+    padding: 20,
   },
 })

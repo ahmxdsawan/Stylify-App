@@ -9,6 +9,7 @@ import UploadScreen from './Screens/UploadScreen';
 import AccountScreen from './Screens/AccountScreen';
 import LoginScreen from './Screens/LoginScreen';
 import SignupScreen from './Screens/SignupScreen';
+import ForgotScreen from './Screens/ForgotPassScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ export default function App() {
         <Stack.Screen options={{ headerShown: false }} name="Outfit" component={OutfitScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Account" component={AccountScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Upload" component={UploadScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Forgot" component={ForgotScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
