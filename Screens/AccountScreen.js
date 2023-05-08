@@ -1,12 +1,24 @@
-import React from 'react';
 import { useNavigation } from '@react-navigation/core'
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { auth } from '../firebase'
+import React, { useEffect, useState } from 'react'
+
 
 
 export default function AccountScreen() {
 
   const navigation = useNavigation();
+  
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace("Login")
+      })
+      .catch(error => alert(error.message))
+  }
+
 
   const navOutfit = () => {
     navigation.replace("Outfit");
@@ -17,6 +29,9 @@ export default function AccountScreen() {
   const navWardrobe = () => {
     navigation.replace("Wardrobe");
   };
+  
+
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.screen}>Account</Text>
@@ -29,6 +44,15 @@ export default function AccountScreen() {
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonText} onPress={navUpload}>
           <MaterialCommunityIcons name="upload" size={24} color="black" />
+        </TouchableOpacity>
+      </View>
+
+      <View>
+      <TouchableOpacity 
+        onPress={handleSignOut}
+        
+        >
+          <Text >Signout</Text>
         </TouchableOpacity>
       </View>
       
@@ -78,7 +102,7 @@ const styles = StyleSheet.create({
       paddingVertical: 17,
       paddingHorizontal: 37,
       borderRadius: 50,
-  
       elevation: 34,
     },
+    
   });
