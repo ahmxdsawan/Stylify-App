@@ -7,11 +7,15 @@ export default function WardrobeScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState('All');
 
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     setModalVisible(false);
+  };
+
+  const navOutfit = () => {
+    navigation.replace("Outfit");
   };
 
   return (
@@ -46,6 +50,9 @@ export default function WardrobeScreen() {
           /> */}
         </View>
       </Modal>
+      <TouchableOpacity style={styles.buttonText} onPress={navOutfit}>
+        <Text>Outift</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -101,6 +108,11 @@ const styles = StyleSheet.create({
     left: 35,
     alignItems: 'center',
     marginTop: 240
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: '700',
+    fontSize: 16,
   },
   modalList: {
     maxHeight: 200,
