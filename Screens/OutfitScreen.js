@@ -1,12 +1,38 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/core'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 export default function OutfitScreen() {
+  const navigation = useNavigation();
+
+  const navAccount = () => {
+    navigation.replace("Account");
+  };
+  const navUpload = () => {
+    navigation.replace("Upload");
+  };
+  const navWardrobe = () => {
+    navigation.replace("Wardrobe");
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.screen}>Outfits</Text>
+      <TouchableOpacity style={styles.buttonText} onPress={navWardrobe}>
+        <MaterialCommunityIcons name="wardrobe" size={24} color="black" />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonText} onPress={navAccount}>
+        <MaterialCommunityIcons name="account" size={24} color="black" />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonText} onPress={navUpload}>
+        <MaterialCommunityIcons name="upload" size={24} color="black" />
+      </TouchableOpacity>
     </SafeAreaView>
   );
+
+  
 }
 
 const styles = StyleSheet.create({

@@ -17,6 +17,12 @@ export default function WardrobeScreen() {
   const navOutfit = () => {
     navigation.replace("Outfit");
   };
+  const navAccount = () => {
+    navigation.replace("Account");
+  };
+  const navUpload = () => {
+    navigation.replace("Upload");
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -42,16 +48,16 @@ export default function WardrobeScreen() {
           <TouchableOpacity style={styles.modalOption} onPress={() => setModalVisible(false)}>
             <Text style={[styles.modalText, { color: 'red' }]}>Cancel</Text>
           </TouchableOpacity>
-          {/* <Button
-            onPress={navigation.replace("Outfit")}
-            title="Outfit"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
-          /> */}
         </View>
       </Modal>
       <TouchableOpacity style={styles.buttonText} onPress={navOutfit}>
-        <Text>Outift</Text>
+          <MaterialCommunityIcons name="tshirt-crew" size={24} color="black" style={styles.buttonIcon} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonText} onPress={navAccount}>
+        <MaterialCommunityIcons name="account" size={24} color="black" style={styles.buttonIcon} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonText} onPress={navUpload}>
+        <MaterialCommunityIcons name="upload" size={24} color="black" style={styles.buttonIcon} />
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -110,9 +116,19 @@ const styles = StyleSheet.create({
     marginTop: 240
   },
   buttonText: {
-    color: 'white',
-    fontWeight: '700',
-    fontSize: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderColor: '#9B9B9B',
+    borderRadius: 50,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginHorizontal: 5,
+  },
+  buttonIcon: {
+    marginRight: 5,
   },
   modalList: {
     maxHeight: 200,
