@@ -1,59 +1,28 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import WardrobeScreen from './WardrobeScreen';
-import OutfitScreen from './OutfitScreen';
-import UploadScreen from './UploadScreen';
-import AccountScreen from './AccountScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Tab = createBottomTabNavigator();
+import WardrobeScreen from './Screens/WardrobeScreen';
+import OutfitScreen from './Screens/OutfitScreen';
+import UploadScreen from './Screens/UploadScreen';
+import AccountScreen from './Screens/AccountScreen';
+import LoginScreen from './Screens/LoginScreen';
+import SignupScreen from './Screens/SignupScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen
-          name="Wardrobe"
-          component={WardrobeScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="wardrobe" color={color} size={size} />
-            ),
-            headerShown: false
-          }}
-        />
-        <Tab.Screen
-          name="Outfit"
-          component={OutfitScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="tshirt-crew" color={color} size={size} />
-            ),
-            headerShown: false
-          }}
-        />
-        <Tab.Screen
-          name="Upload"
-          component={UploadScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="upload" color={color} size={size} />
-            ),
-            headerShown: false
-          }}
-        />
-        <Tab.Screen
-          name="Account"
-          component={AccountScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="account" color={color} size={size} />
-            ),
-            headerShown: false
-          }}
-        />
-      </Tab.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
+        <Stack.Screen name="Signup" component={SignupScreen} />
+        <Stack.Screen name="Wardrobe" component={WardrobeScreen} />
+        <Stack.Screen name="Outfit" component={OutfitScreen} />
+        <Stack.Screen name="Account" component={AccountScreen} />
+        <Stack.Screen name="Upload" component={UploadScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
