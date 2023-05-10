@@ -2,8 +2,23 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/core'
 import { StyleSheet, Text, View, Button, Container, SafeAreaView, Alert, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useState } from 'react';
 
 export default function UploadScreen() {
+
+  const[image, setImage] = useState('');
+
+  const handleChange = (e) => {
+
+    if(e.target.files[0]){
+      setImage(e.target.files[0])
+    }
+  }
+
+  const sumbitData = () => {
+    
+  }
+
 
   const navigation = useNavigation();
   const navAccount = () => {
@@ -31,6 +46,9 @@ export default function UploadScreen() {
         <TouchableOpacity style={styles.buttonText} onPress={navWardrobe}>
           <MaterialCommunityIcons name="wardrobe" size={24} color="black" />
         </TouchableOpacity>
+
+        {/* <input type="file" onChange={handleChange} /> */}
+        {/* <input type="button" onSubmit={sumbitData}></input> */}
       </View>
     </SafeAreaView>
   );
@@ -62,7 +80,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     
-    paddingBottom: 15,
     alignItems: 'center',
     marginTop: 30,
     marginRight: 10,

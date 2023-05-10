@@ -128,7 +128,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     
-    paddingBottom: 15,
     alignItems: 'center',
     marginTop: 30,
     marginRight: 10,
